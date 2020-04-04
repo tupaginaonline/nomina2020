@@ -15,10 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const morgan_1 = __importDefault(require("morgan"));
-const index_routes_1 = __importDefault(require("./routes/index.routes"));
+const access_routes_1 = __importDefault(require("./routes/access.routes"));
 const employee_routes_1 = __importDefault(require("./routes/employee.routes"));
 const express_handlebars_1 = __importDefault(require("express-handlebars"));
 const database_1 = require("./database");
+const passport_1 = __importDefault(require("passport"));
 class App {
     constructor(port) {
         this.port = port;
@@ -43,9 +44,11 @@ class App {
         this.app.use(morgan_1.default('dev'));
         this.app.use(express_1.default.urlencoded({ extended: false }));
         this.app.use(express_1.default.json());
+        this.app.use(passport_1.default.initialize());
+        this.app.use(passport_1.default.session());
     }
     routes() {
-        this.app.use(index_routes_1.default);
+        this.app.use(access_routes_1.default);
         this.app.use('/empleados', employee_routes_1.default);
         this.app.use('/public', express_1.default.static(path_1.default.join(__dirname, './public')));
     }
