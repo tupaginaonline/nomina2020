@@ -3,7 +3,9 @@ import  { connect } from '../database';
 
 // Modules
 import passport from  "passport" ;
-import   '../passport' ;
+
+
+
 export  const renderLogin = (req: Request, res: Response) => {
 	//const conn = await connect();
 	//const employes = await conn.query("SELECT * FROM empleados");
@@ -26,7 +28,7 @@ export const signin = passport.authenticate("local", {
 export const logout = (req: Request, res: Response): Response | void => {
 	
 	req.logout();
-	req.flash("success_msg", "You are logged out now.");
+	req.flash("successLoginMsg", "Has salido satisfactoriamente");
 	return res.redirect("/");
 	
 }

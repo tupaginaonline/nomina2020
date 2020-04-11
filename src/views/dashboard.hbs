@@ -1,21 +1,18 @@
-<h1>Bienvenidos</h1>
-{{#if user}}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Notes 
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/notes">All Notes</a>
-              <a class="dropdown-item" href="/notes/add">Add A Note</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/users/logout">Logout</a>
-            </div>
-          </li>
-{{else}}
-          <li class="nav-item">
-            <a class="nav-link" href="/users/signin">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/users/signup">Register</a>
-          </li>
-{{/if}}
+{{> leftbar }}
+
+ 
+
+        <div class="contentbar">                
+                <!-- Start row -->
+                <div class="row">
+                    <!-- Start col -->
+                    <div class="col-lg-12">
+						<div class="card m-b-30">
+								<div class="card-header">
+									<h5 class="card-title">Bienvenido {{user.usuario}}</h5>
+								</div>
+						</div>
+					</div>						
+				</div>
+		</div>		
+{{> footer }}

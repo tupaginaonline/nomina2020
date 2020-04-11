@@ -7,7 +7,6 @@ router.route('/')
 			.get(renderLogin)
 			.post(signin)
 			
-			
 
 router.route('/logout')
 			.get(logout)

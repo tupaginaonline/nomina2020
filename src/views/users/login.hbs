@@ -1,5 +1,24 @@
  <!-- Start Container -->
         <div class="container">
+		
+{{#if successLoginMsg }}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{successLoginMsg}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{{/if}}
+
+{{#if errorLoginMsg }}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{errorLoginMsg}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{{/if}}
+		
             <div class="auth-box login-box">
                 <!-- Start row -->
                 <div class="row no-gutters align-items-center justify-content-center">
@@ -11,7 +30,7 @@
                                 <div class="card-body">
                                     <form action="/" method="POST">
                                         <div class="form-head">
-                                            <a href="index.html" class="logo h1"><b>Nómina<small>2020</small></b></a>
+                                            <a href="/" class="logo h1"><b>Nómina<small>2020</small></b></a>
                                         </div>                                        
                                         <h4 class="text-primary my-4">Acceso</h4>
                                         <div class="form-group">
@@ -28,8 +47,6 @@
                                         </div>                          
                                       <button type="submit" class="btn btn-success btn-lg btn-block font-18">Ingresar</button>
                                     </form>
-                                  
-                                  
                                 </div>
                             </div>
                         </div>

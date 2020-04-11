@@ -4,10 +4,9 @@ export const connect = async (): Promise<Pool> => {
 	
 	 const connection = await createPool({
 		
-		host: 'bffjve8qdffidcq0larv-mysql.services.clever-cloud.com',
-		user: 'u9i1muywsyxeo4fq',
-		password:'Fa0wjWMJLhe161kgoPeW',
-		database: 'bffjve8qdffidcq0larv',
+		host: 'localhost',
+		user: 'root',
+		database: 'nomina2020bd',
 		connectionLimit: 10
 		
 	});
@@ -15,4 +14,14 @@ export const connect = async (): Promise<Pool> => {
 	return connection;
 	
 }
+
+
+/*
+host: 'bffjve8qdffidcq0larv-mysql.services.clever-cloud.com',
+		user: 'u9i1muywsyxeo4fq',
+		password:'Fa0wjWMJLhe161kgoPeW',
+		database: 'bffjve8qdffidcq0larv',
+		connectionLimit: 10
+
+*/
 

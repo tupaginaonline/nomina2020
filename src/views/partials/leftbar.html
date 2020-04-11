@@ -1,4 +1,4 @@
-	<!-- Start Leftbar -->
+<!-- Start Leftbar -->
         <div class="leftbar">
             <!-- Start Sidebar -->
             <div class="sidebar">               
@@ -145,23 +145,26 @@
                                 <li class="list-inline-item">
                                     <div class="profilebar">
                                         <div class="dropdown">
-                                          <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/public/assets/images/users/profile.svg" class="img-fluid" alt="profile"><span class="live-icon">John Doe</span><span class="feather icon-chevron-down live-icon"></span></a>
+										
+										
+                                          <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/public/assets/images/users/profile.svg" class="img-fluid" alt="profile"><span class="live-icon">{{user.nombre}}</span><span class="feather icon-chevron-down live-icon"></span></a>
+										  
+										  
+										  
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
                                                 <div class="dropdown-item">
                                                     <div class="profilename">
-                                                      <h5>John Doe</h5>
+                                                      <h5>{{user.nombre}}</h5>
                                                     </div>
                                                 </div>
                                                 <div class="userbox">
                                                     <ul class="list-unstyled mb-0">
                                                         <li class="media dropdown-item">
-                                                            <a href="#" class="profile-icon"><img src="/public/assets/images/svg-icon/crm.svg" class="img-fluid" alt="user">My Profile</a>
+                                                            <a href="#" class="profile-icon"><img src="/public/assets/images/svg-icon/crm.svg" class="img-fluid" alt="user">Perfil</a>
                                                         </li>
+                                                                                                              
                                                         <li class="media dropdown-item">
-                                                            <a href="#" class="profile-icon"><img src="/public/assets/images/svg-icon/email.svg" class="img-fluid" alt="email">Email</a>
-                                                        </li>                                                        
-                                                        <li class="media dropdown-item">
-                                                            <a href="#" class="profile-icon"><img src="/public/assets/images/svg-icon/logout.svg" class="img-fluid" alt="logout">Logout</a>
+                                                            <a href="/logout" class="profile-icon"><img src="/public/assets/images/svg-icon/logout.svg" class="img-fluid" alt="logout">Logout</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -178,17 +181,5 @@
             </div>
             <!-- End Topbar -->
             <!-- Start Breadcrumbbar --> 
-					
-                AQUI
-			
-			
-            <!-- End Contentbar -->
-            <!-- Start Footerbar -->
-            <div class="footerbar">
-                <footer class="footer">
-                    <p class="mb-0">© 2020 Nomina2020 - All Rights Reserved. Desarrollado por: <a target="_blank" href="https://tupaginaonline.net">Jose Fuentes | </a></p>
-                </footer>
-            </div>
-            <!-- End Footerbar -->
-        </div>
-        <!-- End Rightbar -->
+			{{> error_msg }}
+			{{> success_msg }}
