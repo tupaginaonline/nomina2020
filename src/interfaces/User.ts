@@ -3,5 +3,6 @@ export interface IUser {
 	usuario:string;
 	nombre:string;
 	apellido:string;
-	clave?:string
+	clave?:string;
+	bd?:string | undefined;
 }

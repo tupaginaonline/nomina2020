@@ -34,6 +34,17 @@ export const logout = (req: Request, res: Response): Response | void => {
 }
 
 
-export const dashboard = (req:Request,res:Response): Response | void  =>  {
-	return res.render("dashboard");
+export const dashboard = async (req:any,res:Response): Promise<Response | void>  =>  {
+	
+	try{
+		const conn = await connect(req.user.bd);
+		
+		const employes = await conn.query("SELECT * FROM empleados");
+		
+	    return res.render("dashboard", {employees:employes[0]});
+		
+	}catch(err){
+		res.status(500).send("Error");
+	}
+	
 }

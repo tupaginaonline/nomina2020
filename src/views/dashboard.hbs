@@ -1,7 +1,5 @@
 {{> leftbar }}
 
- 
-
         <div class="contentbar">                
                 <!-- Start row -->
                 <div class="row">
@@ -9,10 +7,37 @@
                     <div class="col-lg-12">
 						<div class="card m-b-30">
 								<div class="card-header">
-									<h5 class="card-title">Bienvenido {{user.usuario}}</h5>
+									<h5 class="card-title">Bienvenido, {{user.nombre}} {{user.apellido}}</h5>
 								</div>
 						</div>
 					</div>						
 				</div>
+				
+			<div class="card m-b-30">	
+				<div class="card-body">
+				 <div class="table-responsive">
+                                    <table id="default-datatable" class="display table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+												<th>Nombres</th>
+												<th>Apellidos</th>
+												<th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+										{{#each employees}}
+											<tr>
+											  <td>{{id}}</td>
+											  <td>{{upperString nombres}}</td>
+											  <td>{{upperString apellidos}}</td>
+											  <td>{{upperString email}}</td>
+										   </tr>
+										{{/each}}
+										</tbody>
+									</table>
+				</div>					
+				</div>
+			</div>		
 		</div>		
 {{> footer }}

@@ -4,18 +4,12 @@ import morgan from 'morgan';
 import access from './routes/access.routes';
 import EmployeeRoutes from './routes/employee.routes';
 import exphbs  from 'express-handlebars';
-
 import passport from 'passport';
 import session from  'express-session' ;
 import flash from 'connect-flash';
+import './passport' ;
 
-import passportL from './passport' ;
-
-
-const myMiddleware = (req:express.Request,res:express.Response,next:Function): express.Response => {
-	console.log('my middleware');
-return next();
-}
+import helpers from './helpers';
 
 
 export default class App{
@@ -39,6 +33,7 @@ export default class App{
 			defaultLayout: 'main',
 			partialsDir: path.join(this.app.get('views'),'partials'),
 			layoutsDir: path.join(this.app.get('views'),'layouts'),
+			helpers,
 			extname:'.hbs'
 		}));
 		
@@ -60,16 +55,17 @@ export default class App{
 		
 		this.app.use(passport.initialize());
 		this.app.use(passport.session());
-		this.app.use(passportL);
+		
 		this.app.use(flash());
 
 		// Global Variables
-		this.app.use((req, res, next) => {
+		this.app.use((req:any, res:express.Response, next:Function) => {
 		  res.locals.success_msg = req.flash('success_msg');
 		  res.locals.error_msg = req.flash('error_msg');
 		  res.locals.errorLoginMsg = req.flash('errorLoginMsg');
 		  res.locals.error = req.flash('error');
 		  res.locals.user = req.user || null;
+		  
 		  next();
 		});
 
@@ -78,7 +74,7 @@ export default class App{
 	
 	routes(){
 		this.app.use(access);
-		this.app.use('/empleados',myMiddleware,EmployeeRoutes);
+		this.app.use('/empleados', EmployeeRoutes);
 		this.app.use('/public', express.static(path.join(__dirname, './public')));
 	}
 	
